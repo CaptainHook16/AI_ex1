@@ -3,14 +3,23 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+//BFS class
+//extends from Algorithem abstract class and implements its functions
 public class BFSAlgo extends Algorithms {
     //BFS as we know use queue - FIFO - First In First Out
     private Queue<BoardGame> m_open_list;//declare our open list
 
+    /**
+     * runs the search algorithm
+     * @return cost of path - in bfs cost is 0
+     */
     public int thirdValueToPrint(){
         return 0;
     }
 
+    /**
+     * running the BFS algorithm
+     */
     public void StartAlgorithm(BoardGame firstBoard){
 
         m_open_list = new LinkedList<>();

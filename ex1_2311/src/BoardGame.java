@@ -1,10 +1,15 @@
+/*
+coral malachi
+314882853
+ */
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class BoardGame
 {
-    //declere class members
+    //declare class members
+    private int insertion_time;
     private BoardGame m_prev_state;
     private Enum.Direction m_direction;
     private int[] m_missing_prev_state = {-1,-1};
@@ -38,6 +43,10 @@ public class BoardGame
         }
         this.setCurrentMissingNumber();
     }
+
+    public int getInsertion_time() {return this.insertion_time;}
+
+    public void setInsertion_time(int n){this.insertion_time = n;}
 
 
     /**

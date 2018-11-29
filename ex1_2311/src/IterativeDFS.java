@@ -1,17 +1,31 @@
 
-
+/*
+coral malachi
+314882853
+ */
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * IterativeDFS Class.
+ * extends from the abstract class algorithms and implements its functions
+ */
 public class IterativeDFS extends Algorithms {
     private Stack<BoardGame> m_open_list;
     private int m_depth_tree=-1;
 
+    /**
+     * @return cost of path- in IDS case the depth the goal was found
+     */
     public int thirdValueToPrint(){
         return m_depth_tree;
     }
+
+    /**
+     * running the A star algorithm
+     */
     public void StartAlgorithm(BoardGame first_board)
     {
         int lim = 0;
@@ -22,6 +36,13 @@ public class IterativeDFS extends Algorithms {
 
     }
 
+    /**
+     * the function run the DFS algorithm till a given limit, if not found goal yet return false
+     * @param lim - the limit
+     * @param first - the root of tree
+     * @return true - if goal state was found in the givven limit, else return
+     * false
+     */
     public boolean DepthFirstSearchLimit(int lim, BoardGame first)
     {
         //init our outof open list

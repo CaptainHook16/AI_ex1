@@ -1,17 +1,26 @@
+/*
+coral malachi
+314882853
+ */
 import java.io.*;
 import java.util.Arrays;
 import java.util.List;
 
 public class java_ex1 {
 
+    /**
+     * main function - read input.txt file and following the orders - run
+     * the requested algorithm on the given input
+
+     */
     public static void main(String[] args) {
         // write your code here
         //System.out.println("hi");
         BufferedReader buff;
         int pazzel_size = 0;
         int pazzel[][] = null;
-        String a = "input.txt";
-        File file = new File("my_input2.txt");
+        //create a new file - find the input file in directory - assumes the file exists
+        File file = new File("input.txt");
         Enum.Algorithm algo = null;
 
         //set algo user choice
@@ -25,6 +34,7 @@ public class java_ex1 {
                 if (count_lines == 0) {
                     //switch algo according to user input
                     System.out.println(Integer.valueOf(read_line.trim()));
+                    //set the right algorithm according to the input
                     switch (Integer.valueOf(read_line.trim())){
                         case 1://IDS
                             algo = Enum.Algorithm.IDS;
@@ -87,6 +97,13 @@ public class java_ex1 {
 
     //static methods in Java can be called without creating an object of the class.
     // a program execution begins from main and no object has been created yet
+    /**
+    @param arr - the number of board
+    @param size - the size of board
+    @param pazelNumber  - the string of board number from input.txt file
+     * @return number positive - if f(a) is bigger than f(b)
+     * else return negative number
+     */
     public static void initFirstPazelBoard(String pazelNumber, int size,int arr[][]) {
         //int[][] pazzel = new int[size][size];
         //Array.ConvertAll<string, int>(value.Split(','), Convert.ToInt32);
@@ -100,6 +117,11 @@ public class java_ex1 {
 
     }
 
+    /**
+     * the function create the output file according to required in assignment
+     * @return number positive - if f(a) is bigger than f(b)
+     * else return negative number
+     */
     public static void create_output_file(String path,int number_out_of_open_list,int third) throws IOException
     {
         try {
@@ -108,12 +130,5 @@ public class java_ex1 {
             writer.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());}
-
-
-//        File f = new File(file_name);
-//        FileOutputStream m_stream = new FileOutputStream(f);
-//        BufferedWriter buf = new BufferedWriter(new OutputStreamWriter(m_stream));
-//        buf.write(path + " "+String.valueOf(number_out_of_open_list)+" "+String.valueOf(third));
-//        buf.close();
     }
 }
