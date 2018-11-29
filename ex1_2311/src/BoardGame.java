@@ -20,6 +20,7 @@ public class BoardGame
      * @param  numbers - 2D array of board numbers
      * @param  prev_state: the previous state before moving
      * @param direction:where to move
+     * the function create new BoardGame object
      */
     public BoardGame(int size,int[][] numbers,BoardGame prev_state,Enum.Direction direction){
         this.m_size = size;
@@ -38,6 +39,12 @@ public class BoardGame
         this.setCurrentMissingNumber();
     }
 
+
+    /**
+     *   printBoard function
+
+     * the function print BoardGame object
+     */
     public void printBoard(){
         System.out.println("----------------");
         for (int i=0;i<this.m_size;++i)
@@ -53,10 +60,22 @@ public class BoardGame
         System.out.println("---------------");
     }
 
+    /**
+     * @param
+     * the function create new BoardGame object
+     */
+
+    /**
+     * the function return the prev board object
+     */
     public BoardGame getM_prev_state(){
         return this.m_prev_state;
     }
 
+
+    /**
+     * the function calculate the huristic value - Manahtan Distance
+     */
     public int calculateHuristicValue()
     {
         int manhattan_dist_sum = 0;
@@ -78,6 +97,7 @@ public class BoardGame
         return manhattan_dist_sum;
     }
 
+    //the function set the indexes of the zero number in the board
     private void setCurrentMissingNumber(){
         for(int raw=0;raw<this.m_size;++raw){
             for (int col=0;col<this.m_size;++col){
@@ -90,19 +110,23 @@ public class BoardGame
         }
     }
 
+    //the function return the numbers of the board
     private int[][] getNumbers(){
         return m_numbers;
     }
 
+    //the function set the indexes of the zero in previous board
     private void set_missing_prev_state(int i,int j){
         this.m_missing_prev_state[0]=i;
         this.m_missing_prev_state[1]=j;
     }
 
+    //the function return the depth of board
     public int getM_depth(){
         return this.m_depth;
     }
 
+    //this function initial the board - update member values
     private void InitBoard(){
         if (m_prev_state == null){
             return;
@@ -121,6 +145,7 @@ public class BoardGame
 
     }
 
+    //this function implements the move action in the board
     private void move(){
         switch (this.m_direction){
             case Left:
@@ -139,10 +164,12 @@ public class BoardGame
         }
     }
 
+    //return the direction
     public Enum.Direction get_current_direction(){
         return this.m_direction;
     }
 
+    //function checks if we got to the Goal State
     public boolean isWon(){
         //check if the zero is at last place
         if (!(this.m_current_missing[0]==m_size-1 && m_current_missing[1]==m_size-1)){
@@ -165,7 +192,7 @@ public class BoardGame
     }
 
 
-
+    //implement the turning left action
     private void turn_left(){
         if(this.m_missing_prev_state[1]<this.m_size -1)
         {
@@ -176,6 +203,7 @@ public class BoardGame
         }
     }
 
+    //implement the turning right action
     private void turn_right(){
         if(this.m_missing_prev_state[1]>0){
             //save into temp var the number we want to move left twards the 0
@@ -185,6 +213,7 @@ public class BoardGame
         }
     }
 
+    //implement the turning down action
     private void turn_down(){
         if(this.m_missing_prev_state[0]>0)
         {
@@ -196,6 +225,7 @@ public class BoardGame
 
     }
 
+    //implement the turning up action
     private void turn_up()
     {
         if(this.m_missing_prev_state[0]<this.m_size -1){
@@ -206,10 +236,12 @@ public class BoardGame
         }
     }
 
+    //return the size of board
     public int size(){
         return this.m_size;
     }
 
+    //return a list of optioanal directions we can go to in current state
     public List<Enum.Direction> OptionalNextMoves(){
         List<Enum.Direction> directions = new LinkedList<>();
         //it's important the order of check because this is the order we choose when all the successors have

@@ -25,6 +25,7 @@ public class Astar extends Algorithms {
             super.outOpenList.add(cure_board);
             if (cure_board.isWon() ){
                 super.finalBoard = cure_board;
+
                 break;
             }else {
                 //get list of all optional move (valid) in the order of UP,DOWN,RIGHT,LEFT

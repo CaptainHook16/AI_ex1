@@ -11,7 +11,7 @@ public class java_ex1 {
         int pazzel_size = 0;
         int pazzel[][] = null;
         String a = "input.txt";
-        File file = new File("input.txt");
+        File file = new File("my_input2.txt");
         Enum.Algorithm algo = null;
 
         //set algo user choice
